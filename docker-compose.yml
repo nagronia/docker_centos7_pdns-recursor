@@ -1,0 +1,16 @@
+# based on https://github.com/PowerDNS/pdns
+---
+version: '2.0'
+services:
+  recursor01:
+    container_name: recursor01
+    image: nagronia/centos7_pdns-recursor 
+    privileged: true
+    restart: "unless-stopped"
+    environment:
+      - "TZ=Europe/London"
+    volumes:
+      - /srv/docker/etc/powerdns/recursor.d/:/etc/powerdns/recursor.d/
+    ports:
+      - "53:53"
+      - "53:53/udp"
