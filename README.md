@@ -9,7 +9,7 @@ Note: The last argument is the location of the folder...
 
 To run your newly built image first create a folder for your config files...
 
-`mkdir -p /srv/docker/etc/powerdns/recursor.d/`
+`mkdir -p /srv/docker/etc/pdns-recursor/recursor.d/`
 
 Then use the following command to run the image...
 ```
@@ -18,7 +18,7 @@ docker run -d \
   --privileged \
   --restart=unless-stopped \
   -e TZ=Europe/London \
-  -v /srv/docker/etc/powerdns/recursor.d/:/etc/powerdns/recursor.d/ \
+  -v /srv/docker/etc/pdns-recursor/recursor.d/:/etc/pdns-recursor/recursor.d/ \
   -p 53:53/udp \
   -p 53:53/tcp \
   nagronia/centos7_pdns-recursor
